@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+  id="com.rossgerbasi.cordova.glass.core"
+  version="0.0.1">
+
+    <name>GlassCore</name>
+    
+    <keywords>cordova,google glass,glass,android</keywords>
+    
+    <description>
+      Plugin to add Google Glass Suppport to your Cordova Application
+    </description>
+    
+    <license>MIT</license>
+
+    <author>Ross Gerbasi</author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+          <preference name="fullscreen" value="true" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <activity
+            android:name="com.rossgerbasi.cordova.glass.GoogleGlassActivity"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:theme="@style/GlassTheme" >
+            <intent-filter>
+              <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/app_launch_voice_trigger" />
+              </activity>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.INTERNET" />
+          <uses-library android:name="com.google.android.glass" android:required="true" />
+        </config-file>
+
+        <config-file target="res/values/strings.xml" parent="/resources">
+          <string name="app_launch_voice_trigger">hello cordova</string>
+        </config-file>
+
+        <source-file 
+          src="res/xml/app_launch_voice_trigger.xml" target-dir="res/xml" />
+
+        <source-file 
+          src="res/values/styles.xml" target-dir="res/values" />
+
+          <source-file src="src/com/rossgerbasi/cordova/glass/GoogleGlassActivity.java"
+            target-dir="src/com/rossgerbasi/cordova/glass"/>
+    </platform>
+</plugin>
