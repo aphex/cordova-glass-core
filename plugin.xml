@@ -30,6 +30,7 @@
             <preference name="fullscreen" value="true"/>
             <feature name="GlassCore">
                 <param name="android-package" value="com.rossgerbasi.cordova.glass.GlassCorePlugin"/>
+                <param name="onload" value="true"/>
             </feature>
         </config-file>
 

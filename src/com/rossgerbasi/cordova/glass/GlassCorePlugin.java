@@ -13,8 +13,14 @@ public class GlassCorePlugin extends CordovaPlugin {
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-//        Log.d("GlassTouchPlugin", "Init Glass Core Plugin");
+//        Log.d("GlassCorePlugin", "Init Glass Core Plugin");
         super.initialize(cordova, webView);
+
+        //Test for Keep Awake Preference
+        String keepAwake = webView.getProperty("com.rossgerbasi.cordova.glass.core.keepAwake", "false");
+        if(keepAwake.equals("true")) {
+            cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
     @Override

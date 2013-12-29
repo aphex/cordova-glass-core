@@ -43,3 +43,12 @@ com.rossgerbasi.cordova.glass.core.getLaunchParams(
 	}
 );
 ```
+
+###Config###
+The following config.xml preferences are available via this plugin
+
+####keepAwake####
+
+`<preference name="com.rossgerbasi.cordova.glass.core.keepAwake" value="false"/>`
+
+Setting this to true will force your application to always stay on, no screen dimming. A User will need to exit your application via a swipe down gesture to close it.
