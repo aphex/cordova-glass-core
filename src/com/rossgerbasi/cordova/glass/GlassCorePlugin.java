@@ -1,6 +1,9 @@
 package com.rossgerbasi.cordova.glass;
 
 //import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
 import android.speech.RecognizerIntent;
 import org.apache.cordova.*;
 import org.json.JSONArray;
@@ -9,7 +12,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 
-public class GlassCorePlugin extends CordovaPlugin {
+public class GlassCorePlugin extends CordovaPlugin implements View.OnGenericMotionListener {
+    private ArrayList<View.OnGenericMotionListener> listeners;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -21,6 +25,26 @@ public class GlassCorePlugin extends CordovaPlugin {
         if(keepAwake.equals("true")) {
             cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+
+        this.listeners = new ArrayList<View.OnGenericMotionListener>();
+        this.webView.setOnGenericMotionListener(this);
+    }
+
+    @Override
+    public Object onMessage(String id, Object data) {
+        if(id.equals("setMotionListener") && data instanceof View.OnGenericMotionListener) {
+            listeners.add((View.OnGenericMotionListener) data);
+        }
+
+        return super.onMessage(id, data);
+    }
+
+    @Override
+    public boolean onGenericMotion(View v, MotionEvent event) {
+        for(View.OnGenericMotionListener l : listeners){
+            l.onGenericMotion(v, event);
+        }
+        return true;
     }
 
     @Override
