@@ -55,16 +55,14 @@
             <uses-library android:name="com.google.android.glass" android:required="true"/>
         </config-file>
 
-        <config-file target="res/values/strings.xml" parent="/resources">
-            <string name="app_launch_voice_trigger">hello cordova</string>
-            <string name="app_launch_voice_prompt">prompt question</string>
-        </config-file>
-
         <source-file
                 src="res/xml/app_launch_voice_trigger.xml" target-dir="res/xml"/>
 
         <source-file
                 src="res/values/styles.xml" target-dir="res/values"/>
+        
+        <source-file
+                src="res/values/glass.xml" target-dir="res/values"/>                
 
         <source-file src="src/com/rossgerbasi/cordova/glass/GoogleGlassActivity.java"
                      target-dir="src/com/rossgerbasi/cordova/glass"/>

@@ -10,7 +10,7 @@ Add plugin via Node
 
 `cordova plugin add https://github.com/aphex/cordova-glass-core`
 
-Modify Voice Trigger located in **{app}/platforms/android/res/values/strings.xml**
+Modify Voice Trigger located in **{app}/platforms/android/res/values/glass.xml**
 
 `<string name="app_launch_voice_trigger">hello cordova</string>`
 
@@ -27,7 +27,7 @@ To use first uncomment the following line from **{app}/platforms/android/res/xml
 
 ` <input prompt="@string/app_launch_voice_prompt"/>`
 
-Then modify Voice Trigger Prompt located in **{app}/platforms/android/res/values/strings.xml**
+Then modify Voice Trigger Prompt located in **{app}/platforms/android/res/values/glass.xml**
 
 `<string name="app_launch_voice_prompt">prompt question</string>`
 
