@@ -1,4 +1,8 @@
-##CordovaGlassCore##
+##Cordova Glass Core##
+---
+
+### **This plugin will *not* get further updates as it has been merged into the [Cordova Glass Plugin](https://github.com/aphex/cordova-glass) that contains all the same features plus touch and gesture event processing.** ###
+
 ---
 
 This plugin modifies the Android platform in your Cordova based application with Google Glass Compatibility. At its most basic usage it will allow you to launch your application via a voice trigger. Advanced usage allows for voice prompts to be captured during the launch process and sent into the application.

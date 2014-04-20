@@ -52,6 +52,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
             <uses-library android:name="com.google.android.glass" android:required="true"/>
         </config-file>
 
